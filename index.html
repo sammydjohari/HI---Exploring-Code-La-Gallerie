@@ -1,0 +1,125 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <link href="index.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+
+    <script>
+        AFRAME.registerComponent("click-listener", {
+        schema: {
+          type: { type: "string", default: "" }
+      },
+
+        init: function () {
+          const data = this.data;
+          const el = this.el
+
+          alertMessages = {
+          correct:"You rescued me!! Thank you!!!",
+          fav:"This painting man... must be my favourite one",
+          clue:"Where I am trapped, is where the colors are similar to my favourite painting",
+          clue2:"What chemical element has the symbol Au?",
+          fun:"Damn... this song though... crazy",
+          fun2:"Man, I must say... I love Frank Ocean"
+      },
+
+          el.addEventListener("click", function (evt) {
+            alert(alertMessages[data.type])
+          });
+        },
+      });
+    </script>
+
+    <audio src="./assets/audio/frankseigfried.mp3" autoplay></audio>
+
+    <a-scene cursor="rayOrigin: mouse" fog="type: exponential; color: #2B2B4E; density: 0.02 far: 10">
+      <a-sky src="assets/images/face.JPG" color="red" radius="100"></a-sky>
+        <a-light type="point" intensity="1" position="0 5 -2"></a-light>
+        <!-- floor -->
+        <a-plane src="./assets/images/woodenfloor.jpg" position="0 0 -20" rotation="-90 0 0" width="100" height="50"></a-plane> 
+         <!-- right middle wall -->
+        <a-plane src="https://cdn.aframe.io/a-painter/images/floor.jpg" position="25 25 -10" rotation="0 -90 0" width="20" height="50"></a-plane>
+         <!-- right wall -->
+        <a-plane src="https://cdn.aframe.io/a-painter/images/floor.jpg" position="50 25 -20" rotation="0 -90 0" width="50" height="50"></a-plane>
+         <!-- left wall --> 
+        <a-plane src="https://cdn.aframe.io/a-painter/images/floor.jpg" position="-25 25 -20" rotation="0 90 0" width="50" height="50"></a-plane>
+         <!-- wall in front -->
+        <a-plane src="https://cdn.aframe.io/a-painter/images/floor.jpg" position="0 25 -45" rotation="0 0 0" width="100" height="50"></a-plane>
+         <!-- roof --> 
+        <a-plane src="./assets/images/ceiling.jpg" position="10 50 -20" rotation="90 90 0" width="50" height="80"></a-plane>
+         <!-- wall behind --> 
+        <a-plane src="https://cdn.aframe.io/a-painter/images/floor.jpg" position="0 25 5" rotation="180 0 0" width="100" height="50"></a-plane>
+
+        <a-image src="assets/images/help.png" position="10 25 -44.9" width="60" height="40"></a-image>
+
+        <!-- frames on the right middle wall  -->
+        <a-plane click-listener="type: fun2" src="./assets/images/Art1.jpg" position="24.9 3 -17" rotation="0 -90 0" width="3" height="3" ></a-plane>
+        <a-plane click-listener src="./assets/images/Art2.jpg" position="24.9 3 -12.5" rotation="0 -90 0" width="3" height="3" ></a-plane>
+        <a-plane click-listener src="./assets/images/Art3.jpg" position="24.9 3 -7.5" rotation="0 -90 0" width="3" height="3" ></a-plane>
+        <a-plane click-listener src="./assets/images/Art4.jpg" position="24.9 3 -3" rotation="0 -90 0" width="3" height="3" ></a-plane>
+        <!---->
+
+        <!-- frames on the left wall  -->
+        <a-plane click-listener src="./assets/images/Art5.jpg" position="-24.9 3 2" rotation="0 90 0" width="3" height="3" ></a-plane>
+        <a-plane click-listener="type: fun" src="./assets/images/Art6.jpg" position="-24.9 3 -2.5" rotation="0 90 0" width="3" height="3" ></a-plane>
+        <a-plane click-listener src="./assets/images/Art7.jpg" position="-24.9 3 -8" rotation="0 90 0" width="5" height="5" ></a-plane>
+        <a-plane click-listener src="./assets/images/Art8.jpg" position="-24.9 5 -13.5" rotation="0 90 0" width="2" height="2" ></a-plane>
+        <a-plane click-listener src="./assets/images/Art9.jpg" position="-24.9 2 -13.5" rotation="0 90 0" width="2" height="2" ></a-plane>
+        <a-plane click-listener="type: clue2" src="./assets/images/Art10.jpg" position="-24.9 3 -18" rotation="0 90 0" width="3" height="3" ></a-plane>
+        <a-plane click-listener src="./assets/images/Art11.jpg" position="-24.9 3 -22" rotation="0 90 0" width="3" height="3" ></a-plane>
+        <a-plane click-listener src="./assets/images/Art12.jpg" position="-24.9 3 -26" rotation="0 90 0" width="3" height="3" ></a-plane>
+        <a-plane click-listener src="./assets/images/Art13.jpg" position="-24.9 5 -30.5" rotation="0 90 0" width="2" height="2" ></a-plane>
+        <a-plane click-listener src="./assets/images/Art14.jpg" position="-24.9 2 -30.5" rotation="0 90 0" width="2" height="2" ></a-plane>
+        <a-plane click-listener src="./assets/images/Art15.jpg" position="-24.9 3 -35" rotation="0 90 0" width="3" height="3" ></a-plane>
+        <a-plane click-listener src="./assets/images/Art16.jpg" position="-24.9 3 -39" rotation="0 90 0" width="3" height="3" ></a-plane>
+        <!---->
+
+        <!-- frames on the right wall  -->
+        <a-plane click-listener src="./assets/images/Art17.jpg" position="49.9 3 3" rotation="0 -90 0" width="3" height="3" ></a-plane>
+        <a-plane click-listener="type: correct" src="./assets/images/Art18.jpg" position="49.9 3 -1" rotation="0 -90 0" width="3" height="3" ></a-plane>
+        <a-plane click-listener src="./assets/images/Art19.jpg" id="correctBox" position="49.9 3 -5" rotation="0 -90 0" width="2" height="2" ></a-plane>
+        <a-plane click-listener src="./assets/images/Art20.jpg" position="49.9 3 -9" rotation="0 -90 0" width="2" height="2" ></a-plane>
+        <a-plane click-listener src="./assets/images/Art21.jpg" position="49.9 3 -13" rotation="0 -90 0" width="3" height="3" ></a-plane>
+        <a-plane click-listener src="./assets/images/Art22.jpg" position="49.9 3 -17" rotation="0 -90 0" width="3" height="3" ></a-plane>
+        <a-plane click-listener src="./assets/images/Art23.jpg" position="49.9 4 -23" rotation="0 -90 0" width="6" height="6" ></a-plane>
+        <a-plane click-listener src="./assets/images/Art24.jpg" position="49.9 6 -29" rotation="0 -90 0" width="3" height="3" ></a-plane>
+        <a-plane click-listener src="./assets/images/Art25.jpg" position="49.9 2 -29" rotation="0 -90 0" width="3" height="3" ></a-plane>
+        <a-plane click-listener src="./assets/images/Art26.jpg" position="49.9 3 -33" rotation="0 -90 0" width="3" height="3" ></a-plane>
+        <a-plane click-listener src="./assets/images/Art27.jpg" position="49.9 3 -37" rotation="0 -90 0" width="3" height="3" ></a-plane>
+        <a-plane click-listener src="./assets/images/Art28.jpg" position="49.9 3 -41" rotation="0 -90 0" width="3" height="3" ></a-plane>
+        <!---->
+
+        <!-- frames on the wall in front  -->
+        <a-plane click-listener src="./assets/images/Art29.jpg" position="44 3 -44.9" rotation="0 360 0" width="3" height="3" ></a-plane>
+        <a-plane click-listener src="./assets/images/Art30.jpg" position="38.5 3 -44.9" rotation="0 360 0" width="3" height="3" ></a-plane>
+        <a-plane click-listener src="./assets/images/Art31.jpg" position="33 3 -44.9" rotation="0 360 0" width="3" height="3" ></a-plane>
+        <a-plane click-listener src="./assets/images/Art32.jpg" position="27 6 -44.9" rotation="0 360 0" width="3" height="3" ></a-plane>
+        <a-plane click-listener src="./assets/images/Art33.jpg" position="27 2 -44.9" rotation="0 360 0" width="3" height="3" ></a-plane>
+        <a-plane click-listener src="./assets/images/Art34.jpg" position="21 3 -44.9" rotation="0 360 0" width="3" height="3" ></a-plane>
+        <a-plane click-listener src="./assets/images/Art35.jpg" position="16 3 -44.9" rotation="0 360 0" width="3" height="3" ></a-plane>
+        <a-plane click-listener="type: fav" src="./assets/images/Art36.jpg" position="9 4 -44.9" rotation="0 360 0" width="6" height="6" ></a-plane>
+        <a-plane click-listener src="./assets/images/Art37.jpg" position="2 3 -44.9" rotation="0 360 0" width="3" height="3" ></a-plane>
+        <a-plane click-listener src="./assets/images/Art38.jpg" position="-3 3 -44.9" rotation="0 360 0" width="2" height="2" ></a-plane>
+        <a-plane click-listener src="./assets/images/Art39.jpg" position="-8 3 -44.9" rotation="0 360 0" width="3" height="3" ></a-plane>
+        <a-plane click-listener src="./assets/images/Art40.jpg" position="-16 4 -44.9" rotation="0 360 0" width="6" height="6" ></a-plane>
+        <!---->
+
+        <!-- frames on the wall behind  -->
+        <a-plane click-listener src="./assets/images/Art41.jpg" position="44 3 4.9" rotation="180 0 0" width="4" height="4" ></a-plane>
+        <a-plane click-listener src="./assets/images/Art42.jpg" position="38 3 4.9" rotation="180 0 0" width="4" height="3" ></a-plane>
+        <a-plane click-listener src="./assets/images/Art43.jpg" position="32 3 4.9" rotation="180 0 0" width="4" height="4" ></a-plane>
+        <a-plane click-listener src="./assets/images/Art44.jpg" position="25 5 4.9" rotation="180 0 0" width="2" height="2" ></a-plane>
+        <a-plane click-listener src="./assets/images/Art45.jpg" position="25 2 4.9" rotation="180 0 0" width="2" height="2" ></a-plane>
+        <a-plane click-listener src="./assets/images/Art46.jpg" position="19 3 4.9" rotation="180 0 0" width="5" height="5" ></a-plane>
+        <a-plane click-listener src="./assets/images/Art47.jpg" position="13 3 4.9" rotation="180 0 0" width="2" height="2" ></a-plane>
+        <a-plane click-listener src="./assets/images/Art48.jpg" position="8 3 4.9" rotation="180 0 0" width="2" height="2" ></a-plane>
+        <a-plane click-listener="type: clue" src="./assets/images/Art49.jpg" position="2 3 4.9" rotation="180 0 0" width="4" height="4" ></a-plane>
+        <a-plane click-listener src="./assets/images/Art50.jpg" position="-3 3 4.9" rotation="180 0 0" width="3" height="3" ></a-plane>
+        <a-plane click-listener src="./assets/images/Art51.jpg" position="-8 3 4.9" rotation="180 0 0" width="3" height="3" ></a-plane>
+        <a-plane click-listener src="./assets/images/Art52.jpg" position="-15 4 4.9" rotation="180 0 0" width="6" height="6" ></a-plane>
+        <!---->
+    </a-scene>
+  </body>
+</html>
